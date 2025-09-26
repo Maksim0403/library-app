@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Система управління бібліотекою</title>
+    <link rel="stylesheet" href="libs/bootstrap.css">
+</head>
+<body class="bg-light">
+<div class="container py-4">
+    <h1 class="mb-4">Система управління бібліотекою</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Додати книгу</h5>
+                    <form id="book-form" novalidate>
+                        <div class="mb-2">
+                            <label class="form-label">Назва</label>
+                            <input id="book-title" class="form-control" required />
+                            <div class="invalid-feedback">Це поле є обов'язковим.</div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Автор</label>
+                            <input id="book-author" class="form-control" required />
+                            <div class="invalid-feedback">Це поле є обов'язковим.</div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Рік видання</label>
+                            <input id="book-year" class="form-control" required />
+                            <div class="invalid-feedback">Введіть рік (YYYY).</div>
+                        </div>
+                        <button class="btn btn-success" type="submit">Додати книгу</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Додати користувача</h5>
+                    <form id="user-form" novalidate>
+                        <div class="mb-2">
+                            <label class="form-label">Ім'я</label>
+                            <input id="user-name" class="form-control" required />
+                            <div class="invalid-feedback">Це поле є обов'язковим.</div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Email</label>
+                            <input id="user-email" class="form-control" required />
+                            <div class="invalid-feedback">Це поле є обов'язковим.</div>
+                        </div>
+                        <button class="btn btn-success" type="submit">Додати користувача</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Книги</h5>
+                    <input id="search-books" class="form-control mb-2" placeholder="Пошук за назвою або автором" />
+                    <div id="books-list"></div>
+                    <nav><ul id="books-pagination" class="pagination mt-2"></ul></nav>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Користувачі</h5>
+                    <div id="users-list"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm action</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modal-body"></div>
+                <div class="modal-footer">
+                    <input type="text" id="modal-input" class="form-control" placeholder="ID">
+                    <button id="modal-cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+                    <button id="modal-ok" type="button" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="bundle.js"></script>
+
+</body>
+</html>
