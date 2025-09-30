@@ -119,12 +119,12 @@ class App {
         document.querySelectorAll('.delete-book').forEach(btn => {
             (btn as HTMLButtonElement).onclick = () => {
                 const id = (btn as HTMLButtonElement).getAttribute('data-id')!;
-                this.svc.books.removeById(id!);
-                const users = this.svc.users.all();
-                users.forEach(user => {
-                    user.decrement();
-                });
-
+                const book = this.svc.books.findById(id);
+                if (book && book.isBorrowed && typeof book.borrowedBy !== 'undefined') {
+                    const borrower = this.svc.users.findById(book.borrowedBy);
+                    if (borrower) borrower.decrement();
+                }
+                this.svc.books.removeById(id);
                 this.svc.save();
                 this.renderAll();
             };
@@ -214,7 +214,7 @@ class App {
 
             const id = Date.now();
             if (this.svc.users.findById(id)) {
-                this.showToast('User with this id already exists');
+                this.showToast('Користувач з таким ID вже існує');
                 return;
             }
 
