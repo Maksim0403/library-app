@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es6",
-    "removeComments": true,
-    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "nodenext",
+    "target": "es6",
     "esModuleInterop": true,
-    "outDir": "./dist",
-    "sourceMap": true
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   },
   "include": [
     "src"
