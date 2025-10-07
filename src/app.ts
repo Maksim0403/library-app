@@ -1,7 +1,7 @@
-import { Book } from './models/book';
-import { User } from './models/user';
-import { LibraryService } from './services/libraryService';
-import { Validators } from './utils/validation';
+import { Book } from './models/book.js';
+import { User } from './models/user.js';
+import { LibraryService } from './services/libraryService.js';
+import { Validators } from './utils/validation.js';
 
 class App {
   private svc: LibraryService;
