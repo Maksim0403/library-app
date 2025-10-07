@@ -1,0 +1,27 @@
+echo "🔍 Running pre-commit checks..."
+
+# Run Prettier check
+echo "📝 Checking code formatting..."
+npx prettier --check "src/**/*.ts"
+if [ $? -ne 0 ]; then
+  echo "❌ Prettier check failed. Run 'npm run format' to fix formatting."
+  exit 1
+fi
+
+# Run ESLint
+echo "🔎 Running ESLint..."
+npx eslint "src/**/*.ts" --fix
+if [ $? -ne 0 ]; then
+  echo "❌ ESLint check failed. Fix the errors or run 'npm run lint:fix'."
+  exit 1
+fi
+
+# Run tests
+echo "🧪 Running tests..."
+npm test
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Fix the failing tests before committing."
+  exit 1
+fi
+
+echo "✅ All pre-commit checks passed!"

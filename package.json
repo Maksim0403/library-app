@@ -6,8 +6,10 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve --open",
-    "lint": "eslint \"src/**/*.ts\"",
-    "lint:fix": "eslint \"src/**/*.ts\" --fix"
+    "prepare": "husky",
+    "format:check": "npx eslint . && npx prettier --check .",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "repository": {
     "type": "git",
@@ -16,12 +18,10 @@
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.36.0",
-    "@typescript-eslint/eslint-plugin": "^8.45.0",
-    "@typescript-eslint/parser": "^8.45.0",
+    "@types/bootstrap": "^5.2.10",
     "eslint": "^9.36.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
     "globals": "^16.4.0",
+    "husky": "^9.1.7",
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.45.0",

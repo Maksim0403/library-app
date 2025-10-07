@@ -37,6 +37,7 @@ class App {
     const input = document.getElementById('modal-input') as HTMLInputElement;
     const okBtn = document.getElementById('modal-ok') as HTMLButtonElement;
     const modalEl = document.getElementById('confirmModal')!;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const modal = new (window as any).bootstrap.Modal(modalEl);
 
     body.textContent = message;
